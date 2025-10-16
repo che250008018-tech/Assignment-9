@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Define the SalesRecord structure
+struct SalesRecord {
+    string month;
+    float amount;
+};
+
+int main() {
+    // Declare an array of 12 SalesRecord structures (representing a year)
+    SalesRecord sales[12];
+
+   for (int i=0;i<12; ++i) {
+       cout << "Enter sales data for month : "<< i+1<< endl;
+       cout << "Month : ";
+       cin >> sales[i].month ;
+       cout << "Sales amount : ";
+       cin >> sales[i].amount ;
+     }
+       string maxMonth,minMonth ;
+       float maxAmount = -1.0e6, minAmount =1.0e6;
+       for (int i =0;i<12;++i){
+           if (sales[i].amount>maxAmount){
+           maxAmount=sales[i].amount;
+           maxMonth=sales[i].month;
+           }
+       
+       if (sales[i].amount<minAmount){
+       minAmount=sales[i].amount;
+       minMonth = sales[i].month;
+       }
+   }
+   cout<<" Month with maximum sales : "<<maxMonth<< "with amount : $"<< maxAmount<< endl;
+   cout<<"Month with minimum sales : "<<minMonth<< "with amount : $"<< minAmount<< endl;
+   return 0;
